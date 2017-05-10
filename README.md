@@ -20,3 +20,7 @@ Lexically Scoped
 Go Errors
 - Compile time errors
 - Run time errors
+
+Sources
+(learnxinyminutes)[https://learnxinyminutes.com/docs/go/]
+(gobyexamples)[https://gobyexample.com/]
