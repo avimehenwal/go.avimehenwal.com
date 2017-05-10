@@ -1,46 +1,15 @@
-package main
+/*
+	Author	: avimehenwal
+	Created	: 10-may-2017
+	Purpose	: golang slices datatypes
 
-import "fmt"
-
-/*  
-*** DATA TYPES ***
-
-## Numbers
-    uint8, uint16, uint32, uint64,
-    int8,  int16,  int32,  int64
-There are also 3 machine dependent integer types: *uint, int and uintptr*
-They are machine dependent because their size depends on the type of architecture you are using
-
-## Floating Point
-	float32,   float64
-	complex64, complex128
- 
-## Bollean
-	true, false
-
-## String
-	string
 */
 
+package main
+import "fmt"
+
 func main() {
-
-	// Arrays automa value filling
-	var arr [5]int
-	for i := 0; i < len(arr); i++ {
-		arr[i] = i
-	}
-	fmt.Println(arr)
-
-	// Array manual population
-	x := [4]float64{
-		98,
-		93,
-		77,
-		82,
-		// 83,
-	}
-	fmt.Println(x)
-
+	
 	// Maps are a dynamically growable associative array type,
 	/*
 	The make built-in function allocates and initializes an object of type slice, map, or channel(only).
