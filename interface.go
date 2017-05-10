@@ -1,13 +1,18 @@
 /*
-	Go Interfaces
+# Go Interfaces
 	- set of go methods on a specific type
 	- what actions type can execute
 	- Like Python classes
 	- everything in Go is passed by value
+
+* Go is procedural language and NOT object roriented
+* Go doesnt have classes
+
+http://govspy.peterbe.com/
+
 */
 
 package main
-
 import (
 	"fmt"
 )

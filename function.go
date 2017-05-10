@@ -1,13 +1,31 @@
-package main
+/*
+# GO FUNCTIONS
 
+- Multiple returns (explicit)
+- Anonymous Functions
+- Variadic Functions
+- Closures
+- Recursions
+- 
+*/
+
+package main
 import "fmt"
 
-/*  Functions  */
+// returned function _closes over_ the variable `i` to form a closure.
+func intSeq() func() int {
+    i := 0
+    return func() int {
+        i += 1
+        return i
+    }
+}
 
 func f() (int, int) {
 	return 5, 6
 }
 
+// Variadic functions
 func add(args ...int) int {
 	total := 0
 	for _, v := range args {
@@ -21,6 +39,20 @@ func main() {
 	fmt.Println("x=", x, "y=", y)
 	fmt.Println("sum=", add(1, 2, 3, 4))
 
+	// Variadic functions with sliced parameters
 	xs := []int{1, 2, 3}
 	fmt.Println(add(xs...))
+
+    // We call `intSeq`, assigning the result (a function) to `nextInt`.
+    // This function value captures its own `i` value, which will be updated each time we call `nextInt`.
+    nextInt := intSeq()
+
+    fmt.Println(nextInt())
+    fmt.Println(nextInt())
+    fmt.Println(nextInt())
+
+    // To confirm that the state is unique to that
+    // particular function, create and test a new one.
+    newInts := intSeq()
+    fmt.Println(newInts())
 }
