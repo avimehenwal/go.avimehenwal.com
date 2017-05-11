@@ -1,4 +1,13 @@
 /*
+	Author	: avimehenwal
+	Created	: 11-may-2017
+	Purpose	: golang Interfaces
+
+An interface type is defined as a set of method signatures.
+A value of interface type can hold any value that implements those methods.
+
+One of the most ubiquitous interfaces is Stringer defined by the fmt package.
+
 # Go Interfaces
 	- set of go methods on a specific type
 	- what actions type can execute
