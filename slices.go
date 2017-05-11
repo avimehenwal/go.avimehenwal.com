@@ -4,18 +4,21 @@
 	Purpose	: golang slices and array datatypes
 
 *** DATA TYPES ***
-## Numbers
-    uint8, uint16, uint32, uint64,
-    int8,  int16,  int32,  int64
+
 There are also 3 machine dependent integer types: *uint, int and uintptr*
 They are machine dependent because their size depends on the type of architecture you are using
-## Floating Point
-	float32,   float64
-	complex64, complex128
-## Bollean
-	true, false
-## String
+	
+	Go's basic types are
+
+	bool
 	string
+	int  int8  int16  int32  int64
+	uint uint8 uint16 uint32 uint64 uintptr
+	byte // alias for uint8
+	rune // alias for int32
+	     // represents a Unicode code point
+	float32 float64
+	complex64 complex128
 
 https://blog.golang.org/go-slices-usage-and-internals
 
@@ -77,4 +80,38 @@ func main() {
 	// a == []int{0}
 	a = append(a, 1, 2, 3)
 	// a == []int{0, 1, 2, 3}
+
+	// slice are pointers to undelying data-structure and they modify them on operation
+	names := [4]string{
+		"John",
+		"Paul",
+		"George",
+		"Ringo",
+	}
+	fmt.Println(names)
+
+	a := names[0:2]
+	b := names[1:3]
+	fmt.Println(a, b)
+
+	b[0] = "XXX"
+	fmt.Println(a, b)
+	fmt.Println(names)
+
+	// slice capacity are affected by the starting position
+	s := []int{2, 3, 5, 7, 11, 13}
+	printSlice(s)
+	
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)			// len=4 cap=6 [2 3 5 7]
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)			// len=2 cap=4 [5 7]
+
 }

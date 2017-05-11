@@ -18,4 +18,18 @@ func main() {
   c := Circle{x: 0, y: 0, r: 5}
   fmt.Println(c)
   fmt.Println(c.area())
+
+  // slice of structure
+  s := []struct {
+    i int
+    b bool
+  }{
+    {2, true},
+    {3, false},
+    {5, true},
+    {7, true},
+    {11, false},
+    {13, true},
+  }
+  fmt.Println(s)
 }
