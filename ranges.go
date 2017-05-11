@@ -1,4 +1,10 @@
 /*
+    Author  : avimehenwal
+    Created : 10-may-2017
+    Purpose : golang slices and array datatypes
+
+When ranging over a slice, two values are returned for each iteration.
+The first is the index, and the second is a copy of the element at that index.
 
 _range_ iterates over elements in a variety of data structures
 

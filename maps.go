@@ -1,21 +1,36 @@
 /*
 	Author	: avimehenwal
 	Created	: 10-may-2017
-	Purpose	: golang slices datatypes
+	Purpose	: golang maps
 
+Maps are a dynamically growable associative array type,
+	
+The make built-in function allocates and initializes an object of type slice, map, or channel(only).
+Like new, the first argument is a type, not a value.
+Unlike new, make's return type is the same as the type of its argument, not a pointer to it
+	
 */
 
 package main
 import "fmt"
 
+type Vertex struct {
+	Lat, Long float64
+}
+
+var v = map[string]Vertex{
+	"Bell Labs": Vertex{
+		40.68433, -74.39967,
+	},
+	"Google": Vertex{
+		37.42202, -122.08408,
+	},
+}
+
 func main() {
 	
-	// Maps are a dynamically growable associative array type,
-	/*
-	The make built-in function allocates and initializes an object of type slice, map, or channel(only).
-	Like new, the first argument is a type, not a value.
-	Unlike new, make's return type is the same as the type of its argument, not a pointer to it
-	*/
+	fmt.Println(v)
+
 	m := make(map[string]int)
 	m["key"] = 10
 	fmt.Println(m)

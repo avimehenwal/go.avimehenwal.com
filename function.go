@@ -1,4 +1,8 @@
 /*
+	Author	: avimehenwal
+	Created	: 10-may-2017
+	Purpose	: golang functions
+
 # GO FUNCTIONS
 
 - Multiple returns (explicit)
@@ -6,7 +10,10 @@
 - Variadic Functions
 - Closures
 - Recursions
-- 
+
+Functions are values too. They can be passed around just like other values.
+Function values may be used as function arguments and return values.
+
 */
 
 package main
