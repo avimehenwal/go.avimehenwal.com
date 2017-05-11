@@ -26,7 +26,7 @@ https://blog.golang.org/go-slices-usage-and-internals
 A slice is a descriptor of an array segment. It consists of a pointer to the array,
 the length of the segment, and its capacity (the maximum length of the segment).
 
-re-slicing a slice doesn't make a copy of the underlying array. The full array will be kept in memory
+re-slicing a slice doesn't make a copy of the underlying array. The full array will be kept in memory6
 until it is no longer referenced. Occasionally this can cause the program to hold all the data in
 memory when only a small piece of it is needed.
 
@@ -34,6 +34,10 @@ memory when only a small piece of it is needed.
 
 package main
 import "fmt"
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
 
 func main() {
 
@@ -47,12 +51,13 @@ func main() {
 	// Array manual population with and without range
 	x := [4]float64{98, 93, 77, 82}
 	b := [...]string{"Penn", "Teller"}
-	fmy.Println(x,b)
+	fmt.Println(x,b)
 
 	// SLICE
 	letters := []string{"a", "b", "c", "d"}
-
-	//make allocates an array and returns a slice that refers to that array
+	fmt.Println(letters)
+	/*
+	make allocates an array and returns a slice that refers to that array
 	func make([]T, len, cap) []T
 
 	s := make([]byte, 5)
@@ -80,6 +85,7 @@ func main() {
 	// a == []int{0}
 	a = append(a, 1, 2, 3)
 	// a == []int{0, 1, 2, 3}
+    */
 
 	// slice are pointers to undelying data-structure and they modify them on operation
 	names := [4]string{
@@ -90,12 +96,12 @@ func main() {
 	}
 	fmt.Println(names)
 
-	a := names[0:2]
-	b := names[1:3]
-	fmt.Println(a, b)
+	k := names[0:2]
+	l := names[1:3]
+	fmt.Println(k, l)
 
-	b[0] = "XXX"
-	fmt.Println(a, b)
+	l[0] = "XXX"
+	fmt.Println(k, l)
 	fmt.Println(names)
 
 	// slice capacity are affected by the starting position
